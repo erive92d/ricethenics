@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 
 export default function HeroComp() {
+
     return (
         <section className="relative flex items-center justify-center h-screen text-white">
             {/* Background Image */}

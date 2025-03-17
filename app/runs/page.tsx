@@ -1,8 +1,10 @@
+"use client"
 import React from 'react'
 import { testingData } from '../test-data/testing'
 
 
 export default function page() {
+
 
     return (
         <div className="min-h-screen bg-black py-10 px-6">
