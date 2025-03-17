@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link';
 
 
 export default function HeroComp() {
@@ -22,9 +23,9 @@ export default function HeroComp() {
                 <p className="text-lg md:text-xl mt-4">
                     We love to run and eat rice.
                 </p>
-                <button className="btn btn-ghost bg-lime-400 text-black mt-2">
+                <Link href="/runs" className="btn btn-ghost bg-lime-400 text-black mt-2">
                     View runs
-                </button>
+                </Link>
             </div>
         </section>
     );

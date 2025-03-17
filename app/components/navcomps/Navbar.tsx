@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function Navbar() {
@@ -11,28 +12,20 @@ export default function Navbar() {
                     <ul
                         tabIndex={0}
                         className="menu text-lg menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><a className=''>Runs</a></li>
-                        <li>
-                            <a href="
-                            ">
-                                Calendar
-                            </a>
-                        </li>
-                        <li><a>About</a></li>
+                        <li><Link href="/runs">Runs</Link></li>
+                        <li><Link href="/calendar">Calendar</Link></li>
+                        <li><Link href="/about">About</Link></li>
+
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-2xl text-lime-400 italic font-bold">RICETHENICS</a>
+                <Link href="/" className="btn btn-ghost text-2xl text-lime-400 italic font-bold">RICETHENICS</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-lg">
-                    <li><a className=''>Runs</a></li>
-                    <li>
-                        <a href="
-                            ">
-                            Calendar
-                        </a>
-                    </li>
-                    <li><a>About</a></li>
+                    <li><Link href="/runs">Runs</Link></li>
+                    <li><Link href="/calendar">Calendar</Link></li>
+                    <li><Link href="/about">About</Link></li>
+
                 </ul>
             </div>
             <div className="navbar-end">
