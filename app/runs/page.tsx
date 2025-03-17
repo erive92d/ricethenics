@@ -29,7 +29,7 @@ export default function page() {
                         <p className="text-white">
                             <span className="font-medium">Distance:</span> {run.miles} miles
                         </p>
-                        <p className="italic text-blue-600 mt-2">"{run.comment}"</p>
+                        <p className="italic text-blue-600 mt-2">{run.comment}</p>
                     </div>
                 ))}
             </div>
