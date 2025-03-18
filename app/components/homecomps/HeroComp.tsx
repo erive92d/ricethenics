@@ -9,7 +9,7 @@ export default function HeroComp() {
             {/* Background Image */}
             <div className="absolute inset-0 -z-10">
                 <Image
-                    src={"/herobg.jpg"}
+                    src={"/herobg2.jpg"}
                     alt="Hero Background"
                     layout="fill"
                     objectFit="cover"

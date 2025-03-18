@@ -27,7 +27,7 @@ const LoginForm = () => {
     };
 
     return (
-        <div className="min-h-screen max-w-md mx-auto bg-black p-6 rounded-lg shadow-md">
+        <div className=" max-w-md mx-auto bg-black p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold text-center mb-4">Log In</h2>
 
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
