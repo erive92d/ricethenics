@@ -1,31 +1,19 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { addDoc, collection, doc, getDoc } from "firebase/firestore";
 import { db, auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const PlanRunForm = () => {
     const router = useRouter();
-    const [selectedDate, setSelectedDate] = useState("");
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
     const [time, setTime] = useState("");
     const [park, setPark] = useState("");
     const [location, setLocation] = useState("");
     const [error, setError] = useState("");
-    const dateInputRef = useRef<HTMLInputElement | null>(null);
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            import("pikaday").then((PikadayModule) => {
-                const Pikaday = PikadayModule.default;
-                new Pikaday({
-                    field: dateInputRef.current!,
-                    format: "YYYY-MM-DD",
-                    onSelect: (date) => setSelectedDate(date.toISOString().split("T")[0]),
-                });
-            });
-        }
-    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -36,7 +24,6 @@ const PlanRunForm = () => {
             setError("You must be logged in to plan a run.");
             return;
         }
-
 
         try {
             const userDocRef = doc(db, "users", user.uid);
@@ -52,11 +39,11 @@ const PlanRunForm = () => {
             await addDoc(collection(db, "runs"), {
                 userId: user.uid,
                 postBy: userData.firstName,
-                date: selectedDate,
+                date: selectedDate ? selectedDate.toISOString().split("T")[0] : null,
                 time,
                 park,
                 location,
-                createdAt: new Date()
+                createdAt: new Date(),
             });
 
             router.push("/runs"); // Redirect to runs page
@@ -73,12 +60,11 @@ const PlanRunForm = () => {
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
 
             <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                    type="text"
-                    ref={dateInputRef}
-                    placeholder="Select Date"
-                    value={selectedDate}
-                    readOnly
+                <DatePicker
+                    selected={selectedDate}
+                    onChange={(date: Date | null) => setSelectedDate(date)}
+                    dateFormat="yyyy-MM-dd"
+                    placeholderText="Select Date"
                     className="w-full p-2 border rounded bg-gray-100 cursor-pointer text-black"
                 />
 
