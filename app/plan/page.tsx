@@ -1,11 +1,10 @@
 import React from 'react'
+import PlanRunForm from '../components/calendar-page/PlanRunForm'
 
 export default function page() {
     return (
         <div className='min-h-screen bg-black'>
-            <h1 className='text-white'>
-                coming soon...
-            </h1>
+            <PlanRunForm />
         </div>
     )
 }
