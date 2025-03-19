@@ -19,6 +19,7 @@ const PlanRunForm = () => {
         e.preventDefault();
         setError("");
 
+        //retrive current logged in user
         const user = auth.currentUser;
         if (!user) {
             setError("You must be logged in to plan a run.");
